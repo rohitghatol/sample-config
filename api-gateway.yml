@@ -11,8 +11,6 @@ endpoints:
 
 zuul:
   routes:
-    user: /user/**
-    ui: /ui/**
     user-webservice:
       path: /user/**
       stripPrefix: false
