@@ -6,7 +6,6 @@ zuul:
   routes:
     user-webservice: 
       path: /user/**
-      stripPrefix: false
 
       
    
