@@ -3,16 +3,11 @@ server:
 
 zuul:
   routes:
-    user-webservice:
-      path: /api/user/**
-      id: user-webservice
-      stripPrefix: false
-    web-portal:
-      path: /**
-      id: web-portal
-      stripPrefix: true
+    user-webservice:/api/users/
+    web-portal:/
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      enabled: true
+        defaultZone: http://localhost:8761/eureka/
