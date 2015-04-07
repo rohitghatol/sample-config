@@ -6,14 +6,12 @@ zuul:
     web-portal: 
       path: /ui/**
     user-webservice: 
-      path: /api/user/**
-      stripPrefix: false
+      path: /api/**
     task-webservice: 
-      path: /api/task/**
-      stripPrefix: false
+      path: /api/**
     auth-server: 
-      path: /api/oauth/**
-      stripPrefix: false
+      path: /api/**
+      
    
 
 eureka:
