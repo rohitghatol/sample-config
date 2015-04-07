@@ -1,16 +1,8 @@
 server:
   port: 8765
 
-zuul:
-  routes:
-    web-portal: 
-      path: /ui/**
-    user-webservice: 
-      path: /api/**
-    task-webservice: 
-      path: /api/**
-    auth-server: 
-      path: /api/**
+
+   
       
    
 
