@@ -1,8 +1,8 @@
 server:
   port: 8765
 
-
-   
+zuul:
+  prefix: /api
       
    
 
