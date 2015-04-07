@@ -5,6 +5,7 @@ zuul:
   routes:
     user-webservice: /api/**
     task-webservice: /api/**
+    auth-server: /api/**
     web-portal: /**
 
 eureka:
