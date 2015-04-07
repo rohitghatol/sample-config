@@ -3,10 +3,13 @@ server:
 
 zuul:
   routes:
+  
     user-webservice: /api/users/**
     web-portal: /ui/**
 
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
