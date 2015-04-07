@@ -3,8 +3,8 @@ server:
 
 zuul:
   routes:
-    USER-WEBSERVICE: /api/users/
-    WEB-PORTAL: /ui
+    user-webservice: /api/users/
+    web-portal: /ui
 
 eureka:
   client:
