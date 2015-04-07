@@ -4,11 +4,10 @@ server:
 zuul:
   prefix: /api
   routes:
-    user-webservice: 
-      path: /user/**
+    user-webservice: /user/**
+    task-webservice: /task/**
+    auth-server: /auth/**
 
-      
-   
 
 eureka:
   client:
