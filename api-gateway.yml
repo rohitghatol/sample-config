@@ -7,8 +7,7 @@ zuul:
     task-webservice: /api/task/**
     auth-server: /api/auth/**
     web-portal:
-      path: /index.html
-      stripPrefix: false
+      path: /**
       
 
 
