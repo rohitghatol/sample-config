@@ -4,6 +4,7 @@ server:
 zuul:
   routes:
     user-webservice: /api/**
+    task-webservice: /api/**
     web-portal: /**
 
 eureka:
