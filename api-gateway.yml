@@ -2,11 +2,14 @@ server:
   port: 8765
 
 zuul:
+  prefix: /api
   routes:
-    user-webservice: /api/**
-    task-webservice: /api/**
-    auth-server: /auth/**
-    web-portal: /**
+    user-webservice: /user/**
+    task-webservice: /task/**
+    auth-server: /oauth/**
+    web-portal: 
+      path: /**
+      stripPrefix: false
 
 eureka:
   client:
