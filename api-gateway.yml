@@ -3,6 +3,11 @@ server:
 
 zuul:
   prefix: /api
+  routes:
+    user-webservice: 
+      path: /user/**
+      stripPrefix: false
+
       
    
 
