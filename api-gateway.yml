@@ -4,10 +4,12 @@ server:
 zuul:
   routes:
     user-webservice:
-      path: /user/**
+      path: /api/user/**
+      id: user-webservice
       stripPrefix: false
     web-portal:
       path: /**
+      id: web-portal
       stripPrefix: true
 
 eureka:
