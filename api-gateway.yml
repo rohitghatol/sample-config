@@ -4,10 +4,9 @@ server:
 zuul:
   prefix: api
   routes:
-     user-webservice: /user/**
-     task-webservice: /task/**
--    auth-server: /oauth/**
-     web-portal: /**
+    user-webservice: /user/**
+    task-webservice: /task/**
+    auth-server: /oauth/**
     web-portal: 
       path: /**
       stripPrefix: false
