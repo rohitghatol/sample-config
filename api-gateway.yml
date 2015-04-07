@@ -6,10 +6,7 @@ zuul:
     user-webservice: /api/user/**
     task-webservice: /api/task/**
     auth-server: /api/auth/**
-    web-portal:
-      path: /**
-      
-
+    web-portal: /**
 
 eureka:
   client:
