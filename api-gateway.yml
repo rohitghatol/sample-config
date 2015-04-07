@@ -4,7 +4,7 @@ server:
 zuul:
   routes:
     user-webservice:/api/users/
-    web-portal:/
+    web-portal:/ui
 
 eureka:
   client:
