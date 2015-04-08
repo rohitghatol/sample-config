@@ -16,3 +16,8 @@ spring:
     username: root
     password: password
     driver-class: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto:create
