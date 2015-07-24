@@ -42,14 +42,13 @@ spring:
         secure: false
         path: /,/**/*.html
     client:
-      accessTokenUri: http://localhost:8899/userauth/oauth/token
-      userAuthorizationUri: http://localhost:8899/userauth/oauth/authorize
+      accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
+      userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
       clientId: client
       clientSecret: secret
     
 # Datasource and JPA configuration to be used for using the same tokenstore as the authorization server for
-# the defined resource server.
-spring:
+# the defined resource server. Note that there can't be 2 different root nodes, so datasource falls under the "spring" node.
   datasource:
     url: jdbc:mysql://192.168.59.103:3306/auth
     username: root
