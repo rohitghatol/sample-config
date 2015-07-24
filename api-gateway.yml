@@ -20,8 +20,8 @@ zuul:
     user-webservice: /api/user/**
     task-webservice: /api/task/**
     auth-server: 
-      path: /user/**
-      url: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/user
+      path: /loggedinuser/**
+      url: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
     web-portal: /**
 
 # Define the Eureka server that handles service registration
