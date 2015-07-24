@@ -2,6 +2,12 @@
 server:
   port: 8765
 
+# The OAuth2 server definition that would be used to send the authorization requests to
+authserver:
+    hostname: localhost
+    port: 8899
+    contextPath: userauth
+    
 # Define the routes which determine what URL are serviced by what applications.
 # The application/services are defined in the bootstrap.yml file of individual applications
 # using the spring.application.name property.
@@ -13,6 +19,9 @@ zuul:
   routes:
     user-webservice: /api/user/**
     task-webservice: /api/task/**
+    auth-server: 
+      path: /user/**
+      url: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/user
     web-portal: /**
 
 # Define the Eureka server that handles service registration
@@ -20,12 +29,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
-# The OAuth2 server definition that would be used to send the authorization requests to
-authserver:
-    hostname: localhost
-    port: 8899
-    contextPath: userauth
     
 # Define settings for Single-Sign-On with OAuth2; this means that we need to relay the OAuth token 
 # to the subsequent resources that are proxied by the Zuul api gateway.
