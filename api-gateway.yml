@@ -42,8 +42,8 @@ spring:
         secure: false
         path: /,/**/*.html
     client:
-      accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
-      userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
+      accessTokenUri: http://localhost:8899/userauth/oauth/token
+      userAuthorizationUri: http://localhost:8899/userauth/oauth/authorize
       clientId: client
       clientSecret: secret
     
