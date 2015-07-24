@@ -1,18 +1,54 @@
+# Define the port where the API gateway server would be running
 server:
   port: 8765
 
+# Define the routes which determine what URL are serviced by what applications.
+# The application/services are defined in the bootstrap.yml file of individual applications
+# using the spring.application.name property.
+
+# Note that we don't proxy the calls to the authorization server. The reason being that 
+# Spring cloud security would need to secure the api gateway before it can route the 
+# requests using zuul
 zuul:
   routes:
     user-webservice: /api/user/**
     task-webservice: /api/task/**
-    auth-server: /api/auth/**
     web-portal: /**
 
+# Define the Eureka server that handles service registration
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
+# The OAuth2 server definition that would be used to send the authorization requests to
+authserver:
+    hostname: localhost
+    port: 8899
+    contextPath: userauth
+    
+# Define settings for Single-Sign-On with OAuth2; this means that we need to relay the OAuth token 
+# to the subsequent resources that are proxied by the Zuul api gateway.
+
+# The home definition tells us to allow anonymous access (secure: false) to the static resources that
+# are accessed through the Zuul proxy.
+
+# Remaining properties are used by the OAuth2 SSO to determine where the authorization server is and
+# what client crendentials to use to access that server.
+spring:
+  oauth2:
+    sso:
+      home:
+        secure: false
+        path: /,/**/*.html
+    client:
+      accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
+      userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
+      clientId: client
+      clientSecret: secret
+    
+# Datasource and JPA configuration to be used for using the same tokenstore as the authorization server for
+# the defined resource server.
 spring:
   datasource:
     url: jdbc:mysql://192.168.59.103:3306/auth
