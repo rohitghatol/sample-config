@@ -46,6 +46,14 @@ spring:
       userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
       clientId: client
       clientSecret: secret
+# The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
+# a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
+# information about grants and authentication in the token itself.
+
+# Note that the "/user" endpoint needs to provide the principle of the logged in user (/me endpoint)
+    resource: 
+      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/user
+      preferTokenInfo: false 
     
 # Datasource and JPA configuration to be used for using the same tokenstore as the authorization server for
 # the defined resource server. Note that there can't be 2 different root nodes, so datasource falls under the "spring" node.
