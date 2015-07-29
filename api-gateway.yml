@@ -19,12 +19,11 @@ zuul:
   routes:
     user-webservice: /api/user/**
     task-webservice: /api/task/**
-    auth-server: 
+    web-portal: /**
+    user: 
       path: /api/loggedinuser/**
       stripPrefix: true
-      url: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/
-    web-portal: /**
-
+      url: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}
 # Define the Eureka server that handles service registration
 eureka:
   client:
@@ -56,7 +55,7 @@ spring:
 
 # Note that the "/user" endpoint needs to provide the principle of the logged in user (/me endpoint)
     resource: 
-      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/user
+      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
       preferTokenInfo: false 
     
 # Datasource and JPA configuration to be used for using the same tokenstore as the authorization server for
