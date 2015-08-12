@@ -61,7 +61,7 @@ spring:
 # Datasource and JPA configuration to be used for using the same tokenstore as the authorization server for
 # the defined resource server. Note that there can't be 2 different root nodes, so datasource falls under the "spring" node.
   datasource:
-    url: jdbc:mysql://192.168.59.103:3306/auth
+    url: jdbc:mysql://docker:3306/auth
     username: root
     password: password
     driver-class: com.mysql.jdbc.Driver
@@ -83,11 +83,11 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://registryserver:8761/eureka/
+      defaultZone: http://docker:8761/eureka/
       
 # The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
-    hostname: 192.168.59.103
+    hostname: docker
     port: 8899
     contextPath: userauth
     
