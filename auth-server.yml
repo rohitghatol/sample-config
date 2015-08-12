@@ -27,9 +27,9 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: create
-
+   
 ---
-# auth-server instance when used on Docker
+
 spring:
   profiles: docker
 eureka:

@@ -11,9 +11,9 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       
-
+      
 ---
-# Eureka instance when used on Docker
+
 spring:
   profiles: docker
 eureka:
