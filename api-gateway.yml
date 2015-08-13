@@ -83,11 +83,11 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://docker:8761/eureka/
+      defaultZone: http://192.168.59.103:8761/eureka/
       
 # The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
-    hostname: docker
+    hostname: 192.168.59.103
     port: 8899
     contextPath: userauth
     
