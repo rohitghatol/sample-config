@@ -2,7 +2,7 @@
 # cookies for both the API gateway as well as the OAuth2 authorization server.
 server:
   port: 8899
-  contextPath: /userauth 
+  contextPath: /userauth
 
 eureka:
   client:
@@ -11,17 +11,17 @@ eureka:
 
 security:
   user:
-    password: password      
+    password: password
 
-# Datasource and JPA configuration to be used for storing the OAuth authorization details 
+# Datasource and JPA configuration to be used for storing the OAuth authorization details
 # and token store
 spring:
   datasource:
-    url: jdbc:mysql://192.168.99.100:3306/auth
+    url: jdbc:mysql://localhost:3306/auth
     username: root
     password: password
     driver-class: com.mysql.jdbc.Driver
-  
+
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: false
@@ -33,7 +33,7 @@ spring:
 spring:
   profiles: docker
 eureka:
-# Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
+# Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get
 # one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
   instance:
     preferIpAddress: true
