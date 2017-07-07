@@ -14,7 +14,7 @@ spring:
   datasource:
     url: jdbc:mysql://db/auth
     username: root
-    password: password
+    password: 
     driver-class: com.mysql.jdbc.Driver
   
   jpa:
